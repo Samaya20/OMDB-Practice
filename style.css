@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #6f6f6f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #6f6f6f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #343434;
+    border-radius: 10px;
+}
+
+body {
+    background: #171717;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.sidebar {
+    width: 25%;
+    height: 100%;
+    background: rgb(65, 65, 65);
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar ul li {
+    width: 100%;
+    background: rgb(85, 85, 85);
+    color: whitesmoke;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.main-content {
+    width: 100%;
+    padding: 30px 20px;
+    margin: 0 10px;
+    background: black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchbar {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+}
+
+.searchbar input {
+    width: 70%;
+    font-size: 18px;
+    padding: 10px 15px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    color: whitesmoke;
+    background: #a1a1a13a;
+}
+
+.searchbar input:focus {
+    border-color: #a70b0b;
+}
+
+.searchbar button {
+    width: 20%;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 18px;
+}
+
+#films {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 20px 20px;
+    border-radius: 10px;
+}
+
+#films .film-item {
+    width: 100%;
+    color: whitesmoke;
+    background: #242424;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.film-item .film-poster {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.film-item .bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.film-item .bottom .text{
+    display: flex;
+    flex-direction: column;
+}
+
+.film-item .bottom .text h3,p {
+    width: 100%;
+    margin: 10px 0;
+}
+
+#heart{
+    color:#a70b0b;
+}

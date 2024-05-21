@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="sidebar">
+            <ul class="categories" id="categories">
+                <li onclick="GetFavorites()">Favorites</li>
+                <li>Drama</li>
+                <li>Comedy</li>
+                <li>Romantic</li>
+                <li>Action</li>
+                <li>Scared</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="searchbar">
+                <input type="text" name="movie" id="movie" placeholder="Search ..">
+                <button id="btn" onclick="GetData()">Search</button>
+            </div>
+            <div id="films"></div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
