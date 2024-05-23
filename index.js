@@ -51,7 +51,7 @@ function AddFavorite(id) {
     icon.classList.remove("fa-solid");
     icon.classList.add("fa-regular");
     alert(`${id}-li element favorilərdən silindi :/`);
-    favorites.remove(id);  
+    GetData();
   }
 
   console.log(favorites);
