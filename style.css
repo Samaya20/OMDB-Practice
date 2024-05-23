@@ -62,6 +62,7 @@ body {
     padding: 12px 20px;
     font-size: 18px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .main-content {
@@ -147,4 +148,5 @@ body {
 
 .fa-heart{
     color:#a70b0b;
+    cursor: pointer;
 }
