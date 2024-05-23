@@ -51,6 +51,7 @@ function AddFavorite(id) {
     icon.classList.remove("fa-solid");
     icon.classList.add("fa-regular");
     alert(`${id}-li element favorilərdən silindi :/`);
+    favorites.remove(id);  
   }
 
   console.log(favorites);
@@ -58,7 +59,7 @@ function AddFavorite(id) {
 
 function GetFavorites() {
   if (favorites.length === 0) {
-    alert("No favorites added yet!");
+    alert("Favorilərdə film yoxdur!");
     return;
   }
 
