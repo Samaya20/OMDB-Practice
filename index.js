@@ -76,7 +76,7 @@ function GetFavorites() {
         content += `
           <div class="film-item">
             <img src="${movie.Poster}" class="film-poster" />
-            <div class="bottom">
+            <div class="bottom">  
                <div class="text">
                  <p>${movie.Year}</p>
                  <h3>${movie.Title}</h3>
