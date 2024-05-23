@@ -4,7 +4,7 @@ async function SendRequest(url) {
 
 function GetData() {
   let movie = document.getElementById("movie").value;
-  let url = `http://www.omdbapi.com/?apikey=4f36977d&s=${movie}`;
+  let url = `https://www.omdbapi.com/?apikey=4f36977d&s=${movie}`;
 
   SendRequest(url)
     .then((data) => {
