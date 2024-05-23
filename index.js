@@ -4,7 +4,8 @@ async function SendRequest(url) {
 
 function GetData() {
   let movie = document.getElementById("movie").value;
-  let url = `https://www.omdbapi.com/?apikey=4f36977d&s=${movie}`;
+  let url = `http://www.omdbapi.com/?apikey=4f36977d&s=${movie}`;
+
   SendRequest(url)
     .then((data) => {
       FillElement(data);
@@ -26,7 +27,7 @@ function FillElement(response) {
              <p>${e.Year}</p>
              <h3>${e.Title}</h3>
            </div>
-           <i id="heart" class="fa-regular fa-heart" onclick="AddFavorite(${e.imdbID})"></i>
+           <i id="${e.imdbID}" class="fa-regular fa-heart" onclick="AddFavorite(id)"></i>
         </div>
       </div>
     `;
@@ -35,27 +36,61 @@ function FillElement(response) {
   container.innerHTML = content;
 }
 
-function AddFavorite(id) {
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let favorites = [];
 
-  this.classList.remove("fa-regular");
-  this.classList.add("fa-solid");
+function AddFavorite(id) {
+  const icon = document.getElementById(id);
 
   if (!favorites.includes(id)) {
     favorites.push(id);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    alert(`Id-si ${id} olan film favorilərə əlavə olundu :)`);
+    icon.classList.remove("fa-regular");
+    icon.classList.add("fa-solid");
+    alert(`${id}-li element favorilərə əlavə olundu :)`);
   } else {
-    alert(`Id-si ${id} olan film favorilərdə var :/`);
+    favorites = favorites.filter((favId) => favId !== id);
+    icon.classList.remove("fa-solid");
+    icon.classList.add("fa-regular");
+    alert(`${id}-li element favorilərdən silindi :/`);
   }
+
+  console.log(favorites);
 }
 
-function LoadFavorites() {
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  console.log("Favorites:", favorites);
-}
+function GetFavorites() {
+  if (favorites.length === 0) {
+    alert("No favorites added yet!");
+    return;
+  }
 
-LoadFavorites();
+  let urlPromises = favorites.map((id) => {
+    let url = `http://www.omdbapi.com/?apikey=4f36977d&i=${id}`;
+    return SendRequest(url);
+  });
+
+  Promise.all(urlPromises)
+    .then((results) => {
+      let container = document.getElementById("films");
+      let content = "";
+
+      results.forEach((movie) => {
+        content += `
+          <div class="film-item">
+            <img src="${movie.Poster}" class="film-poster" />
+            <div class="bottom">
+               <div class="text">
+                 <p>${movie.Year}</p>
+                 <h3>${movie.Title}</h3>
+               </div>
+               <i id="${movie.imdbID}" class="fa-solid fa-heart" onclick="AddFavorite('${movie.imdbID}')"></i>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = content;
+    })
+    .catch((err) => console.error(err));
+}
 
 // const url =
 //   "https://youtube-search-results.p.rapidapi.com/youtube-search/?q=justin%2Bbieber";
