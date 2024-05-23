@@ -63,7 +63,7 @@ function GetFavorites() {
   }
 
   let urlPromises = favorites.map((id) => {
-    let url = `http://www.omdbapi.com/?apikey=4f36977d&i=${id}`;
+    let url = `https://www.omdbapi.com/?apikey=4f36977d&i=${id}`;
     return SendRequest(url);
   });
 
